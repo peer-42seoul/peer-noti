@@ -34,6 +34,7 @@ def get_secret(setting):
 
 
 SECRET_KEY = get_secret("SECRET_KEY")
+SLACK_INFO = get_secret("slack")
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
