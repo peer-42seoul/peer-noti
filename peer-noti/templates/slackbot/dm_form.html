@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <h2 class="my-3 border-bottom pb-2">Slack DM 전송</h2>
+    <form method="post">
+        {% csrf_token %}
+        {% include 'form_errors.html' %}
+        {% include 'alert_message.html' %}
+        <div class="mb-3">
+            <label for="intra_id" class="form-label">Intra id</label>
+            <input type="text" class="form-control" name="intra_id" id="intra_id"
+                    value="{{ form.intra_id.value|default_if_none:'' }}">
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">message</label>
+            <textarea class="form-control" name="message" id="message" rows="10">{{ form.message.value|default_if_none:'' }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">전송</button>
+    </form>
+</div>
+{% endblock %}
